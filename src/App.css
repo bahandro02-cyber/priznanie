@@ -1,0 +1,284 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #55132f, #160817 75%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+.intro,
+.confession,
+.success {
+  position: relative;
+  z-index: 2;
+  animation: appear 1s ease;
+}
+
+.intro h1,
+.success h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 45px;
+  color: #ff80ab;
+  text-shadow: 0 0 25px #ff1744;
+}
+
+.intro p {
+  margin: 15px 0 90px;
+  color: #ffd6e5;
+}
+
+/* КОНВЕРТ */
+
+.envelope {
+  width: 300px;
+  height: 190px;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+  animation: floating 3s infinite ease-in-out;
+  filter: drop-shadow(0 10px 25px #ff174455);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #e91e63;
+  border-radius: 10px;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff80ab, #c2185b);
+  clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #ff4081;
+  z-index: 3;
+}
+
+.envelope-heart {
+  position: absolute;
+  top: 75px;
+  left: 125px;
+  font-size: 45px;
+  z-index: 4;
+  animation: heartbeat 1s infinite;
+}
+
+.open-btn,
+.yes-btn,
+.no-btn {
+  border: none;
+  border-radius: 35px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.open-btn {
+  margin-top: 75px;
+  background: linear-gradient(45deg, #ff1744, #ff80ab);
+  color: white;
+  box-shadow: 0 0 25px #ff1744;
+}
+
+.open-btn:hover,
+.yes-btn:hover {
+  transform: scale(1.12);
+}
+
+/* ПРИЗНАНИЕ */
+
+.letter-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid #ff80ab;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 50px #ff174433;
+}
+
+.top-heart {
+  font-size: 35px;
+}
+
+.letter-card h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 35px;
+  color: #ff80ab;
+  margin: 10px 0 20px;
+}
+
+.love-text {
+  line-height: 1.8;
+  color: #ffe4ed;
+  font-size: 15px;
+}
+
+.letter-card h2 {
+  margin-top: 25px;
+  color: #ff80ab;
+  font-size: 22px;
+}
+
+/* КНОПКИ */
+
+.buttons-area {
+  height: 100px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.yes-btn {
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  background: linear-gradient(45deg, #ff1744, #ff80ab);
+  color: white;
+  box-shadow: 0 0 20px #ff1744;
+  z-index: 2;
+}
+
+.no-btn {
+  position: absolute;
+  background: #fff;
+  color: #e91e63;
+  white-space: nowrap;
+  z-index: 3;
+  transition: left 0.2s ease, top 0.2s ease;
+}
+
+/* ПОСЛЕ YES */
+
+.success h2 {
+  color: #ff80ab;
+  margin: 20px 0;
+}
+
+.success p {
+  line-height: 2;
+  color: #ffe4ed;
+}
+
+.success h3 {
+  color: #ff80ab;
+  margin-top: 25px;
+  letter-spacing: 3px;
+}
+
+.big-heart {
+  font-size: 110px;
+  animation: heartbeat 1s infinite;
+  margin: 25px;
+}
+
+/* СЕРДЕЧКИ */
+
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: #ff80ab;
+  font-size: 30px;
+  opacity: 0.5;
+  animation: floatHearts 7s infinite linear;
+  word-spacing: 30px;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+/* ТЕЛЕФОН */
+
+@media (max-width: 500px) {
+  .intro h1,
+  .success h1 {
+    font-size: 32px;
+  }
+
+  .letter-card {
+    padding: 30px 18px;
+  }
+
+  .letter-card h1 {
+    font-size: 29px;
+  }
+
+  .love-text {
+    font-size: 13px;
+  }
+
+  .letter-card h2 {
+    font-size: 19px;
+  }
+
+  .envelope {
+    transform: scale(0.9);
+  }
+}
